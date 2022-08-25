@@ -6,3 +6,7 @@ Trabalho 1 de Algoritmos de Programação II 22.2
 - Kevin Robert Elias
 - Thiago Marinho Solfo
 - Vinicius José
+
+### Funcionamento
+
+- Criação de cartelas: um vetor para cada linha
