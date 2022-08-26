@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Roboto", // Para testar se a configuração está sendo aplicada no grupo - alterar para "Roboto".
+  "editor.fontFamily": "Roboto",
   "C_Cpp.clang_format_path": "",
   "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0, IncludeBlocks: Merge }",
   "C_Cpp.autocompleteAddParentheses": true,
@@ -10,7 +10,7 @@
   "terminal.integrated.defaultProfile.windows": "Command Prompt",
   "editor.formatOnSave": true,
   "code-runner.runInTerminal": true,
-  "files.associations": {
+  "files.associations": { // Pra automaticamente codificar os arquivos em cpp & c para windows 1252 (para resolver o problema da acentuação)
     "*.cpp": "cpp",
     "*.c": "c"
   },
