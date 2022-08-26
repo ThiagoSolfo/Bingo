@@ -1,10 +1,15 @@
 /*
 Define uma cartela ordenada do bingo.
-Última Alteração em 25/08/2022 por Homero.
+Intgrantes:
+  Homero César de Campos
+  Kevin Robert Elias
+  Thiago Marinho Solfo
+  Vinicius José
+
 Faltante:
-        - Menu de Interação do Usuário;
-        - Loop com o jogo completo no main***;
-        - Verificar caso para mais de 1 ganhador.
+  Menu de Interação do Usuário;
+  Loop com o jogo completo no main***;
+  Verificar caso para mais de 1 ganhador.
 */
 
 #include <conio.h>
