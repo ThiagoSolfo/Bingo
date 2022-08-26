@@ -16,6 +16,10 @@ Faltante:
   - Menu de interação do usuário;
   - Interface com as cartelas atualizando a medida que os números vão saindo;
   - Loop com o jogo completo no main.
+
+Como usar texto colorido:
+  - Use a função textcolor(numero, numero) escolhendo a numeração da cor no arquivo codefun.h (o primeiro é o texto e o segundo o background - não esqueça de resetar depois porque isso se aplica a todo o console!!)
+  Ex: textcolor(4,0) - texto vermelho e fundo preto
 */
 
 #include <locale.h>
@@ -28,10 +32,12 @@ using namespace std;
 
 #define SIZE 5
 
-void inicializaLinha(int vet[SIZE]) {
-    for (int i = 0; i < SIZE; i++)
-        vet[i] = 0;
-}
+// Substituído por vet[SIZE] = {}
+//
+// void inicializaLinha(int vet[SIZE]) {
+//     for (int i = 0; i < SIZE; i++)
+//         vet[i] = 0;
+// }
 
 bool SIS(int vet[SIZE], int valor, int tam) {
     for (int k = 0; k < tam; k++) {
@@ -58,7 +64,7 @@ void sort(int vet[]) {  // bubble sort
 }
 
 void preencheLinha(int vet[SIZE], int linha) {
-    inicializaLinha(vet);
+    // inicializaLinha(vet);
     int p;
     for (int i = 0; i < SIZE; i++) {
         do {
@@ -82,16 +88,26 @@ void imprimeCartela(int vet[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
         cout << endl;
         for (int j = 0; j < SIZE; j++) {
-            cout << vet[i][j] << " ";
+            cout << vet[i][j] << "\t";
         }
     }
 }
 
 int main() {
+    int vet[SIZE] = {};
     setlocale(LC_ALL, "Portuguese");
     srand(time(NULL));
     int Cartela1[SIZE][SIZE];
     preencheCartela(Cartela1);
     imprimeCartela(Cartela1);
+
+    // Testes com textos coloridos
+    textcolor(4, 0);
+    cout << "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed odio euismod, sollicitudin mauris a, maximus nisi.";
+    textcolor(11, 0);
+    cout << "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed odio euismod, sollicitudin mauris a, maximus nisi.";
+    textcolor(9, 0);
+    cout << "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed odio euismod, sollicitudin mauris a, maximus nisi.";
+
     return 0;
 }
