@@ -1,0 +1,25 @@
+{
+  "editor.fontFamily": "Roboto", // Para testar se a configuração está sendo aplicada no grupo - alterar para "Roboto".
+  "C_Cpp.clang_format_path": "",
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0, IncludeBlocks: Merge }",
+  "C_Cpp.autocompleteAddParentheses": true,
+  "editor.formatOnPaste": true,
+  "files.trimFinalNewlines": true,
+  "editor.detectIndentation": false,
+  "code-runner.saveFileBeforeRun": true,
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "editor.formatOnSave": true,
+  "code-runner.runInTerminal": true,
+  "files.associations": {
+    "*.cpp": "cpp",
+    "*.c": "c"
+  },
+  "[cpp]": {
+    "files.autoGuessEncoding": false,
+    "files.encoding": "windows1252",
+  },
+  "[c]": {
+    "files.autoGuessEncoding": false,
+    "files.encoding": "windows1252",
+  },
+}
