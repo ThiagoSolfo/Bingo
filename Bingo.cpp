@@ -163,7 +163,7 @@ int main() {
     setlocale(LC_ALL, "portuguese");
     srand(time(NULL));
 
-    int tam = 75;
+    const int tam = 75;
     int ListaCartelas[SIZE][SIZE][SIZE], vetorSorteio[tam];
     int winner = -1;
 
