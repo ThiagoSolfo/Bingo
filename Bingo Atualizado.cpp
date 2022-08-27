@@ -72,6 +72,7 @@ int main() {
         gotoxy(58, 23);
         cout << "Vencedor: Cartela " << winner << "!";
         x = continuarJogando();
+        winner = -1;
     } while (x);
     return 0;
 }
@@ -205,12 +206,10 @@ void imprimeSorteio(int vet[75]) {
 }
 
 void sorteioNumero(int Cartelas[SIZE][SIZE][SIZE], int vetor[75]) {
-    static int cont = 0;
     int num;
     do {
         num = rand() % 75 + 1;
-    } while (SIS(vetor, num, cont + 1));
-    cont++;
+    } while (SIS(vetor, num, 75));
     vetor[74] = num;
     bubblesort(vetor, 75);
     gotoxy(35, 0);
