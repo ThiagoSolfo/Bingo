@@ -19,12 +19,22 @@
 #define LIGHTYELLOW 14
 #define BRIGHTWHITE 15
 
-void gotoxy(int x, int y) {
+void gotoxy(short x, short y) {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), (COORD){x, y});
 }
 
+void ShowConsoleCursor(bool showFlag) {
+    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    CONSOLE_CURSOR_INFO cursorInfo;
+
+    GetConsoleCursorInfo(out, &cursorInfo);
+    cursorInfo.bVisible = showFlag;  // set the cursor visibility
+    SetConsoleCursorInfo(out, &cursorInfo);
+}
+
 void clrscr() {
-    system("cls");
+    system("CLS");
 }
 
 void delay(unsigned long t) {
