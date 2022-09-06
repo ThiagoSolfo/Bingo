@@ -2,7 +2,6 @@
 Define uma cartela ordenada do bingo.
 
 Faltante:
-    - Verificar caso para mais de 1 ganhador.
     - "Não pode haver cartelas repetidas"
 
 Integrantes:
@@ -45,16 +44,16 @@ void imprimeSorteio(int vet[75]);
 
 void sorteioNumero(int Cartelas[SIZE][SIZE][SIZE], int vetor[75], string jogadores[]);
 
-int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[]);
+int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[], bool vencedores[]);
+
+void imprimeVencedores(bool vencedores[], string jogadores[]);
 
 bool continuarJogando();
 
 int main() {
     setlocale(LC_ALL, "portuguese");
     srand(time(NULL));
-
-    int escolher;
-    bool x, y;
+    bool x, y, winners[SIZE];
     const int tam = 75;
     int ListaCartelas[SIZE][SIZE][SIZE], vetorSorteio[tam];
     int winner = -1;
@@ -63,9 +62,8 @@ int main() {
 
     do {
         Sleep(2000);
-
-        ShowConsoleCursor(false);
         clrscr();
+        ShowConsoleCursor(false);
 
         SorteioCartelas(ListaCartelas);
 
@@ -81,15 +79,21 @@ int main() {
                 switch (tecla) {
                     case ' ':
                         sorteioNumero(ListaCartelas, vetorSorteio, jogadores);
-                        winner = procuraVencedor(ListaCartelas, vetorSorteio);
+                        procuraVencedor(ListaCartelas, vetorSorteio, winners);
+                        for (int i = 0; i < SIZE; i++) {
+                            if (winners[i])
+                                winner = 0;
+                        }
                 }
             }
         } while (winner == -1);
         Sleep(1000);
-        gotoxy(58, 23);
-        cout << "Vencedor: " << jogadores[winner - 1] << "!";
+        imprimeVencedores(winners, jogadores);
         ShowConsoleCursor(true);
         x = continuarJogando();
+        if (!x) {
+            return 0;
+        }
         y = trocarNomes();
         if (y)
             inicializaJogadores(jogadores);
@@ -107,7 +111,8 @@ void inicializaJogadores(string jogadores[SIZE]) {
 
 bool trocarNomes() {
     char p;
-    cout << "Deseja alterar o(s) nome(s) do(s) jogador(es)? " << endl;
+    clrscr();
+    cout << "Deseja alterar o(s) nome(s) do(s) jogador(es)? ";
     cin >> p;
     switch (p) {
         case 'Y':
@@ -232,7 +237,9 @@ void sorteioNumero(int Cartelas[SIZE][SIZE][SIZE], int vetor[75], string jogador
     imprimeSorteio(vetor);
 }
 
-int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[]) {
+int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[], bool vencedores[]) {
+    for (int i = 0; i < SIZE; i++)
+        vencedores[i] = false;
     for (int ind = 0; ind < SIZE; ind++) {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -250,10 +257,19 @@ int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[]) {
                 }
             }
         }
-        if (ind >= 5)
-            return -1;
-        else
-            return ind + 1;
+        vencedores[ind] = true;
+    }
+    return -1;
+}
+
+void imprimeVencedores(bool vencedores[], string jogadores[]) {
+    int cont = 0;
+    for (int i = 0; i < SIZE; i++) {
+        if (vencedores[i]) {
+            gotoxy(58, 23 + cont);
+            cout << "Vencedor " << cont + 1 << ": " << jogadores[i];
+            cont++;
+        }
     }
 }
 
@@ -261,7 +277,6 @@ bool continuarJogando() {
     Sleep(5000);
     clrscr();
     char p;
-    gotoxy(35, 2);
     do {
         cout << "Deseja continuar jogando? (Y or N): ";
         cin >> p;
