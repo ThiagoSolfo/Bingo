@@ -392,13 +392,13 @@ int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[], bool vencedores
 }
 
 void imprimeVencedores(bool vencedores[], string jogadores[]) {
-    /* Função que realiza a impressão de um ou mais vencedores na tela de acordo com o vetor 'vencedores'; */
+    /* Função que realiza a impressão na tela de um ou mais vencedores na tela de acordo com o vetor 'vencedores'; */
 
     int cont = 0;
     for (int i = 0; i < SIZE; i++) {
         if (vencedores[i]) {
-            gotoxy(58, 23 + cont);
-            cout << "Vencedor " << cont + 1 << ": " << jogadores[i];
+            gotoxy(54, 23 + cont);
+            cout << "Vencedor " << cont + 1 << ": " << jogadores[i] << " (cartela " << i + 1 << ")";
             cont++;
         }
     }
