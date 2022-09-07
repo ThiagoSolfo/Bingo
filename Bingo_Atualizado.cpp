@@ -63,7 +63,7 @@ int main() {
     do {
         Sleep(2000);
         clrscr();
-        ShowConsoleCursor(false);
+        ShowConsoleCursor(false);  // Chamada de função inexistente
 
         SorteioCartelas(ListaCartelas);
 
