@@ -56,7 +56,7 @@ void ShowConsoleCursor(bool showFlag);
 
 void telaFinal();
 
-/*  Iní­cio Main  -----------------------------------------------------------------------------------*/
+/*  Início Main  -----------------------------------------------------------------------------------*/
 int main() {
     setlocale(LC_ALL, "portuguese");
     srand(time(NULL));
@@ -134,11 +134,11 @@ int main() {
 /*  Fim Main  --------------------------------------------------------------------------------------*/
 
 void telaInicial() {
-    /*  Função de iní­cio do programa, mostrando os integrantes e do que se compõe o jogo do bingo, e como jogar; */
+    /*  Função de início do programa, mostrando os integrantes e do que se compõe o jogo do bingo, e como jogar; */
 
     ShowConsoleCursor(false);
     cout << "**BINGO**\nTrabalho M1 de Algoritmos e Programação II, da turma 2022.2, do professor Rafael Ballottin, desenvolvido pelos alunos:";
-    cout << "\n\n\t- Homero César de Campos Pytlovanciw\n\t- Kevin Robert Elias\n\t- Thiago Marinho Solfo\n\t- Viní­cius José";
+    cout << "\n\n\t- Homero César de Campos Pytlovanciw\n\t- Kevin Robert Elias\n\t- Thiago Marinho Solfo\n\t- Vinícius José";
     gotoxy(0, 8);
     Sleep(2000);
     cout << "Como Jogar:" << endl;
@@ -223,7 +223,7 @@ void bubblesort(int vet[], int tam) {
 }
 
 void preencheLinha(int vet[SIZE], int linha) {
-    /*  Função que realiza o preenchimento das linhas da cartela de acordo com o í­ndice da 'linha';
+    /*  Função que realiza o preenchimento das linhas da cartela de acordo com o índice da 'linha';
         Os valores da linha são randomizados entre 1 e 15 + 'linha'*15, não podendo ser repetidos, e então ordenados;
     */
 
@@ -250,7 +250,7 @@ void preencheCartela(int vet[SIZE][SIZE]) {
 }
 
 void SorteioCartelas(int Cartelas[SIZE][SIZE][SIZE]) {
-    /*  Função de preenchimento de todas as cartelas. Vetor tridimensional para abrigar o í­ndice da cartela
+    /*  Função de preenchimento de todas as cartelas. Vetor tridimensional para abrigar o índice da cartela
         além dos valores de cada cartela.
     */
 
@@ -268,7 +268,7 @@ void SorteioCartelas(int Cartelas[SIZE][SIZE][SIZE]) {
 bool verificaCartelas(int Cartelas[SIZE][SIZE][SIZE]) {
     /*  Verifica se uma cartela é igual a alguma outra, comparando elemento por elemento;
         Funcionalidade: compara cartela 0 com 1, depois cartela 0 com 2, 0 com 3, 0 com 4, então 1 com 2, 1 com 3 ...;
-        Até chegar na comparação 3 com 4. Se passar do í­ndice 4, retorna falso. Se encontrar cartelas iguais, retorna verdadeiro;
+        Até chegar na comparação 3 com 4. Se passar do índice 4, retorna falso. Se encontrar cartelas iguais, retorna verdadeiro;
     */
 
     int k = 0, cond = 0;                                                                /// Inicialização da variável cond e a var de controle k;
@@ -282,7 +282,7 @@ bool verificaCartelas(int Cartelas[SIZE][SIZE][SIZE]) {
                 while (Cartelas[ind][i][j] != Cartelas[ind + k + 1][i][j] && k < SIZE - ind - 1) {
                     i = 0;
                     j = 0;                                                              /// reset dos iteradores e troca de cartela caso encontre 1 elemento diferente;
-                    k++;                                                                /// se chegar em k onde k + ind + 1 > SIZE, pula-se para o próximo í­ndice de cartela;
+                    k++;                                                                /// se chegar em k onde k + ind + 1 > SIZE, pula-se para o próximo índice de cartela;
                     cond = 1;                                                           /// cond = 1 caso as cartelas sejam diferentes;
                 }
                 if (ind + k + 1 >= SIZE) {                                              /// quando extrapolar o limite da matriz;
@@ -320,7 +320,7 @@ void PosicionaCartelas(int Cartelas[SIZE][SIZE][SIZE], int vet[], string jogador
                 textcolor(7, 0);  /// Retorna a cor do cursor para 'WHITE' novamente;
             }
         }
-        gotoxy(8 + (indice % 2) * 48, 10 + 8 * (indice / 2));                           /// Lógica de posicionamento dos í­ndices dos jogadores
+        gotoxy(8 + (indice % 2) * 48, 10 + 8 * (indice / 2));                           /// Lógica de posicionamento dos índices dos jogadores
         cout << "jogador " << indice + 1 << ": " << jogadores[indice];
     }
 }
@@ -360,8 +360,8 @@ void sorteioNumero(int Cartelas[SIZE][SIZE][SIZE], int vetor[75], string jogador
 }
 
 int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[], bool vencedores[]) {
-    /*  Função que procura vencedores de acordo com o í­ndice das cartelas;
-        Caso encontre um vencedor, ele atualiza o vetor 'vencedores' com true para o í­ndice relativo a cartela vencedora;
+    /*  Função que procura vencedores de acordo com o índice das cartelas;
+        Caso encontre um vencedor, ele atualiza o vetor 'vencedores' com true para o índice relativo a cartela vencedora;
     */
 
     for (int i = 0; i < SIZE; i++)

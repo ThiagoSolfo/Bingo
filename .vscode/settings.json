@@ -1,7 +1,7 @@
 {
     "editor.fontFamily": "Roboto, Consolas", // Fonte primária a ser usada no editor & seu fallback
     "C_Cpp.clang_format_path": "",
-    "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0, IncludeBlocks: Merge, AlignTrailingComments: True}", // Formato de identação
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0, IncludeBlocks: Merge }", // Formato de identação
     "C_Cpp.autocompleteAddParentheses": true, // Completará automaicamente os parênteses
     "editor.formatOnPaste": true, // Sempre irá formatar o código ao colar
     "editor.formatOnSave": false, // Sempre irá formatar o código quando salvar o arquivo
@@ -25,7 +25,5 @@
         "c": "g++ $fullFileName -o $fileNameWithoutExt.exe && start $fileNameWithoutExt.exe", // Remova o "start" para executar no terminal integrado ou mudar para "powershell".
         "cpp": "g++ $fullFileName -o $fileNameWithoutExt.exe && start $fileNameWithoutExt.exe", // Remova o "start" para executar no terminal integrado  ou mudar para "powershell".
     },
-    "terminal.explorerKind": "external",
-    "C_Cpp.vcFormat.indent.preserveComments": true,
-    "files.trimTrailingWhitespace": false
+    "terminal.explorerKind": "external"
 }
