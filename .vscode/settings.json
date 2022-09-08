@@ -24,5 +24,6 @@
     "code-runner.executorMap": {
         "c": "g++ $fullFileName -o $fileNameWithoutExt.exe && start $fileNameWithoutExt.exe", // Remova o "start" para executar no terminal integrado ou mudar para "powershell".
         "cpp": "g++ $fullFileName -o $fileNameWithoutExt.exe && start $fileNameWithoutExt.exe", // Remova o "start" para executar no terminal integrado  ou mudar para "powershell".
-    }
+    },
+    "terminal.explorerKind": "external"
 }
