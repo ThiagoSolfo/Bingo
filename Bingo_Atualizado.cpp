@@ -14,7 +14,7 @@ Integrantes:
 #include <time.h>
 #include <windows.h>
 #include <iostream>
-#include "codefun.h"
+#include "codefun.h" /// Utilização do codefun.h integral como passado no material didático;
 
 using namespace std;
 
@@ -120,6 +120,7 @@ int main() {
             telaFinal();
             return 0;                                                                   /// Termina o programa caso o usuário não queira continuar jogando;
         }
+        
 
         /*  Verifica se o usuário quer trocar os nomes do jogadores */
         y = trocarNomes();

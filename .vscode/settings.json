@@ -1,5 +1,4 @@
 {
-    "editor.fontFamily": "Roboto, Consolas", // Fonte primária a ser usada no editor & seu fallback
     "C_Cpp.clang_format_path": "",
     "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0, IncludeBlocks: Merge }", // Formato de identação
     "C_Cpp.autocompleteAddParentheses": true, // Completará automaicamente os parênteses
@@ -8,9 +7,10 @@
     "files.trimFinalNewlines": true, // Cortará automaticamnte novas linhas ao final do código
     "terminal.integrated.defaultProfile.windows": "Command Prompt", // Terminal integrado padrão
     "code-runner.runInTerminal": true, // Obrigatório para fazer o Code Runner Funcionar
-    "files.associations": { // Codificará os arquivos em c++ & c para windows 1252 (para resolver o problema da acentuação entre editores)
+    "files.associations": {
         "*.cpp": "cpp",
-        "*.c": "c"
+        "*.c": "c",
+        "xstring": "cpp"
     },
     "[cpp]": {
         "files.autoGuessEncoding": false,
