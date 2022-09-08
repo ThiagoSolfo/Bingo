@@ -1,23 +1,47 @@
 {
+<<<<<<< HEAD
+    "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++.exe arquivo de build ativo",
+            "type": "shell",
+            "label": "C/C++: g++.exe build active file",
             "command": "C:\\MinGW\\bin\\g++.exe",
             "args": [
-                "-fdiagnostics-color=always",
+                "-std=c++11",
+                "-O2",
+                "-Wall",
+=======
+    "tasks": [
+                    {
+                        "type": "cppbuild",
+                        "label": "C/C++: g++.exe arquivo de build ativo",
+                        "command": "C:\\MinGW\\bin\\g++.exe",
+                        "args": [
+                            "-fdiagnostics-color=always",
+>>>>>>> 155ee25e16c285a56f3b60ed3fe14af30b2fb07d
                 "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
+                            "${file}",
+                            "-o",
+                            "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                        ],
+                        "options": {
+<<<<<<< HEAD
+                "cwd": "${workspaceFolder}"
+=======
                 "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
+>>>>>>> 155ee25e16c285a56f3b60ed3fe14af30b2fb07d
+                        },
+                        "problemMatcher": [
+                            "$gcc"
+                        ],
+                        "group": {
+<<<<<<< HEAD
+                "isDefault": true,
+                            "kind": "build"
+                        }
+                    }
+                ]
+=======
                 "kind": "build",
                 "isDefault": true
             },
@@ -25,4 +49,5 @@
         }
     ],
     "version": "2.0.0"
+>>>>>>> 155ee25e16c285a56f3b60ed3fe14af30b2fb07d
 }
