@@ -1,11 +1,11 @@
 /*
-Trabalho M1 de Algoritmos e Programa√ß√£o II: Bingo;
+Trabalho M1 de Algoritmos e ProgramaÁ„o II: Bingo;
 Professor: Rafael Ballottin Martins;
 Integrantes:
-    - Homero C√©sar de Campos Pytlovanciw
+    - Homero CÈsar de Campos Pytlovanciw
     - Kevin Robert Elias
     - Thiago Marinho Solfo
-    - Vinicius Jos√©
+    - Vinicius JosÈ
 */
 
 #include <conio.h>
@@ -56,12 +56,12 @@ void ShowConsoleCursor(bool showFlag);
 
 void telaFinal();
 
-/*  In√≠cio Main  -----------------------------------------------------------------------------------*/
+/*  InÌ≠cio Main  -----------------------------------------------------------------------------------*/
 int main() {
     setlocale(LC_ALL, "portuguese");
     srand(time(NULL));
 
-    /// Inicializa√ß√£o de Vari√°veis
+    /// InicializaÁ„o de Vari·veis
 
     bool x, y, winners[SIZE], verify = true;
     const int tam = 75;
@@ -72,31 +72,31 @@ int main() {
 
     inicializaJogadores(jogadores);
 
-    /// La√ßo Principal do Bingo
+    /// LaÁo Principal do Bingo
 
     do {
         Sleep(2000);
         clrscr();
         ShowConsoleCursor(false);
 
-        /*  La√ßo de verifica√ß√£o de igualdade entre cartelas */
+        /*  LaÁo de verificaÁ„o de igualdade entre cartelas */
         do {
             SorteioCartelas(ListaCartelas);
             verify = verificaCartelas(ListaCartelas);
         } while (verify);
 
         /*  Inicializa-se o vetor sorteio com os valores iguais a 100;
-            Isso auxilia na l√≥gica de ordenar e exibir os valores sorteados;
+            Isso auxilia na lÛgica de ordenar e exibir os valores sorteados;
         */
         inicializaLinha(vetorSorteio, 100, tam);
 
         PosicionaCartelas(ListaCartelas, vetorSorteio, jogadores);                      ///  Posiciona as cartelas pela primeira vez na tela;
         Sleep(1000);
 
-        /*  La√ßo Interno de Sorteio dos N√∫meros */
+        /*  LaÁo Interno de Sorteio dos N˙meros */
         do {
             gotoxy(43, 23);
-            cout << "Aperte a tecla espa√ßo para sortear novo n√∫mero";
+            cout << "Aperte a tecla espaÁo para sortear novo n˙mero";
             if (_kbhit()) {
                 char tecla = getch();
                 switch (tecla) {
@@ -109,24 +109,24 @@ int main() {
                         }
                 }
             }
-        } while (winner == -1);                                                         /// Condi√ß√£o de parada para caso haja vencedores
+        } while (winner == -1);                                                         /// CondiÁ„o de parada para caso haja vencedores
 
         imprimeVencedores(winners, jogadores);                                          /// Imprime os vencedores na tela;
         ShowConsoleCursor(true);
 
-        /*  Verifica√ß√µes para novo jogo */
-        x = continuarJogando();                                                         /// Att da vari√°vel de controle do loop principal;
+        /*  VerificaÁıes para novo jogo */
+        x = continuarJogando();                                                         /// Att da vari·vel de controle do loop principal;
         if (!x) {
             telaFinal();
-            return 0;                                                                   /// Termina o programa caso o usu√°rio n√£o queira continuar jogando;
+            return 0;                                                                   /// Termina o programa caso o usu·rio n„o queira continuar jogando;
         }
 
-        /*  Verifica se o usu√°rio quer trocar os nomes do jogadores */
+        /*  Verifica se o usu·rio quer trocar os nomes do jogadores */
         y = trocarNomes();
         if (y)
             inicializaJogadores(jogadores);
 
-        winner = -1;                                                                    /// Atualiza√ß√£o da vari√°vel winner para o novo jogo;
+        winner = -1;                                                                    /// AtualizaÁ„o da vari·vel winner para o novo jogo;
     } while (x);
 
     return 0;                                                                           /// Cobertura;
@@ -134,18 +134,18 @@ int main() {
 /*  Fim Main  --------------------------------------------------------------------------------------*/
 
 void telaInicial() {
-    /*  Fun√ß√£o de in√≠cio do programa, mostrando os integrantes e do que se comp√µe o jogo do bingo, e como jogar; */
+    /*  FunÁ„o de inÌ≠cio do programa, mostrando os integrantes e do que se compıe o jogo do bingo, e como jogar; */
 
     ShowConsoleCursor(false);
-    cout << "**BINGO**\nTrabalho M1 de Algoritmos e Programa√ß√£o II, da turma 2022.2, do professor Rafael Ballottin, desenvolvido pelos alunos:";
-    cout << "\n\n\t- Homero C√©sar de Campos Pytlovanciw\n\t- Kevin Robert Elias\n\t- Thiago Marinho Solfo\n\t- Vin√≠cius Jos√©";
+    cout << "**BINGO**\nTrabalho M1 de Algoritmos e ProgramaÁ„o II, da turma 2022.2, do professor Rafael Ballottin, desenvolvido pelos alunos:";
+    cout << "\n\n\t- Homero CÈsar de Campos Pytlovanciw\n\t- Kevin Robert Elias\n\t- Thiago Marinho Solfo\n\t- VinÌ≠cius JosÈ";
     gotoxy(0, 8);
     Sleep(2000);
     cout << "Como Jogar:" << endl;
     Sleep(1000);
     cout << "\n\t1) Digite os nomes dos jogadores de cada cartela: 5 jogadores no total!";
     Sleep(1000);
-    cout << "\n\t2) Aperte a tecla Espa√ßo para sortear os n√∫meros!";
+    cout << "\n\t2) Aperte a tecla EspaÁo para sortear os n˙meros!";
     Sleep(1000);
     cout << "\n\t3) Seja um vencedor!\n" << endl;
     Sleep(1000);
@@ -156,7 +156,7 @@ void telaInicial() {
 }
 
 void inicializaJogadores(string jogadores[SIZE]) {
-    /*  Fun√ß√£o para dar nomes para os jogadores de cada cartela, necess√°rio vetor como par√¢metro;    */
+    /*  FunÁ„o para dar nomes para os jogadores de cada cartela, necess·rio vetor como par‚metro;    */
 
     cout << "Digite os nomes dos jogadores!\n" << endl;
     for (int i = 0; i < SIZE; i++) {
@@ -166,7 +166,7 @@ void inicializaJogadores(string jogadores[SIZE]) {
 }
 
 bool trocarNomes() {
-    /*  Fun√ß√£o para verificar se o usu√°rio deseja alterar o nome dos jogadores;  */
+    /*  FunÁ„o para verificar se o usu·rio deseja alterar o nome dos jogadores;  */
 
     char p;
     clrscr();
@@ -187,7 +187,7 @@ bool trocarNomes() {
 }
 
 void inicializaLinha(int vet[], int valor, int tam) {
-    /*  Fun√ß√£o que inicializa um vetor de tamanho 'tam' com todos os seus elementos iguais a 'valor';    */
+    /*  FunÁ„o que inicializa um vetor de tamanho 'tam' com todos os seus elementos iguais a 'valor';    */
 
     for (int i = 0; i < tam; i++) {
         vet[i] = valor;
@@ -195,7 +195,7 @@ void inicializaLinha(int vet[], int valor, int tam) {
 }
 
 bool pesquisaSequencial(int vet[], int valor, int tam) {
-    /*  Realiza a pesquisa sequencial em um vetor 'vet' e retorna se o 'valor' se encontra ou n√£o no vetor;   */
+    /*  Realiza a pesquisa sequencial em um vetor 'vet' e retorna se o 'valor' se encontra ou n„o no vetor;   */
 
     for (int k = 0; k < tam; k++) {
         if (valor == vet[k])
@@ -205,7 +205,7 @@ bool pesquisaSequencial(int vet[], int valor, int tam) {
 }
 
 void bubblesort(int vet[], int tam) {
-    /*  Fun√ß√£o do BubbleSort */
+    /*  FunÁ„o do BubbleSort */
 
     int i, j, cond, temp;
     cond = 1;
@@ -223,8 +223,8 @@ void bubblesort(int vet[], int tam) {
 }
 
 void preencheLinha(int vet[SIZE], int linha) {
-    /*  Fun√ß√£o que realiza o preenchimento das linhas da cartela de acordo com o √≠ndice da 'linha';
-        Os valores da linha s√£o randomizados entre 1 e 15 + 'linha'*15, n√£o podendo ser repetidos, e ent√£o ordenados;
+    /*  FunÁ„o que realiza o preenchimento das linhas da cartela de acordo com o Ì≠ndice da 'linha';
+        Os valores da linha s„o randomizados entre 1 e 15 + 'linha'*15, n„o podendo ser repetidos, e ent„o ordenados;
     */
 
     inicializaLinha(vet);
@@ -232,14 +232,14 @@ void preencheLinha(int vet[SIZE], int linha) {
     for (int i = 0; i < SIZE; i++) {
         do {
             p = rand() % 15 + (1 + linha * 15);
-        } while (pesquisaSequencial(vet, p, i));                                        /// Verifica√ß√£o de repeti√ß√£o do valor aleatorizado na linha;
+        } while (pesquisaSequencial(vet, p, i));                                        /// VerificaÁ„o de repetiÁ„o do valor aleatorizado na linha;
         vet[i] = p;
     }
     bubblesort(vet);
 }
 
 void preencheCartela(int vet[SIZE][SIZE]) {
-    /*  Fun√ß√£o de preenchimento para uma cartela. Preenche as cartelas de acordo com a fun√ß√£o 'preencheLinha';   */
+    /*  FunÁ„o de preenchimento para uma cartela. Preenche as cartelas de acordo com a funÁ„o 'preencheLinha';   */
 
     int linha[SIZE];
     for (int i = 0; i < SIZE; i++) {
@@ -250,8 +250,8 @@ void preencheCartela(int vet[SIZE][SIZE]) {
 }
 
 void SorteioCartelas(int Cartelas[SIZE][SIZE][SIZE]) {
-    /*  Fun√ß√£o de preenchimento de todas as cartelas. Vetor tridimensional para abrigar o √≠ndice da cartela
-        al√©m dos valores de cada cartela.
+    /*  FunÁ„o de preenchimento de todas as cartelas. Vetor tridimensional para abrigar o Ì≠ndice da cartela
+        alÈm dos valores de cada cartela.
     */
 
     int Cartela[SIZE][SIZE];
@@ -266,49 +266,49 @@ void SorteioCartelas(int Cartelas[SIZE][SIZE][SIZE]) {
 }
 
 bool verificaCartelas(int Cartelas[SIZE][SIZE][SIZE]) {
-    /*  Verifica se uma cartela √© igual a alguma outra, comparando elemento por elemento;
-        Funcionalidade: compara cartela 0 com 1, depois cartela 0 com 2, 0 com 3, 0 com 4, ent√£o 1 com 2, 1 com 3 ...;
-        At√© chegar na compara√ß√£o 3 com 4. Se passar do √≠ndice 4, retorna falso. Se encontrar cartelas iguais, retorna verdadeiro;
+    /*  Verifica se uma cartela È igual a alguma outra, comparando elemento por elemento;
+        Funcionalidade: compara cartela 0 com 1, depois cartela 0 com 2, 0 com 3, 0 com 4, ent„o 1 com 2, 1 com 3 ...;
+        AtÈ chegar na comparaÁ„o 3 com 4. Se passar do Ì≠ndice 4, retorna falso. Se encontrar cartelas iguais, retorna verdadeiro;
     */
 
-    int k = 0, cond = 0;                                                                /// Inicializa√ß√£o da vari√°vel cond e a var de controle k;
+    int k = 0, cond = 0;                                                                /// InicializaÁ„o da vari·vel cond e a var de controle k;
     for (int ind = 0; ind < SIZE; ind++) {
-        if (ind + 1 >= SIZE)                                                            /// Se chegar na √∫ltima cartela, n√£o h√° necessidade de novas compara√ß√µes;
+        if (ind + 1 >= SIZE)                                                            /// Se chegar na ˙ltima cartela, n„o h· necessidade de novas comparaÁıes;
             return false;
-        k = 0;  /// reset da vari√°vel de controle k;
+        k = 0;  /// reset da vari·vel de controle k;
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                cond = 0;  /// reseta vari√°vel cond para 0 (true);
+                cond = 0;  /// reseta vari·vel cond para 0 (true);
                 while (Cartelas[ind][i][j] != Cartelas[ind + k + 1][i][j] && k < SIZE - ind - 1) {
                     i = 0;
                     j = 0;                                                              /// reset dos iteradores e troca de cartela caso encontre 1 elemento diferente;
-                    k++;                                                                /// se chegar em k onde k + ind + 1 > SIZE, pula-se para o pr√≥ximo √≠ndice de cartela;
+                    k++;                                                                /// se chegar em k onde k + ind + 1 > SIZE, pula-se para o prÛximo Ì≠ndice de cartela;
                     cond = 1;                                                           /// cond = 1 caso as cartelas sejam diferentes;
                 }
                 if (ind + k + 1 >= SIZE) {                                              /// quando extrapolar o limite da matriz;
                     i = 5;
-                    j = 5;                                                              /// N√£o atualizar√° a vari√°vel cond pois n√£o entrar√° no loop j novamente;
+                    j = 5;                                                              /// N„o atualizar· a vari·vel cond pois n„o entrar· no loop j novamente;
                 }
             }
         }
-        if (cond == 0)                                                                  /// retornar√° verdadeiro caso haja cartelas iguais;
+        if (cond == 0)                                                                  /// retornar· verdadeiro caso haja cartelas iguais;
             return true;
     }
-    return true;                                                                        /// N√£o deve chegar at√© esse return, apenas cobertura;
+    return true;                                                                        /// N„o deve chegar atÈ esse return, apenas cobertura;
 }
 
 void PosicionaCartelas(int Cartelas[SIZE][SIZE][SIZE], int vet[], string jogadores[SIZE]) {
-    /*  Fun√ß√£o que realiza o posicionamento das cartelas no console;
-        A pintura dos valores sorteados de cada cartela ocorre a cada sorteio de um novo n√∫mero (vide sorteioNumero);
-        √â tamb√©m realizado a identifica√ß√£o de cada cartela com cada um dos jogadores abaixo de cada cartela;
+    /*  FunÁ„o que realiza o posicionamento das cartelas no console;
+        A pintura dos valores sorteados de cada cartela ocorre a cada sorteio de um novo n˙mero (vide sorteioNumero);
+        … tambÈm realizado a identificaÁ„o de cada cartela com cada um dos jogadores abaixo de cada cartela;
     */
 
     for (int indice = 0; indice < SIZE; indice++) {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                gotoxy(48 * (indice % 2) + j * 8, 5 + i + indice / 2 * 8);              /// L√≥gica de posicionamento dos valores das cartelas;
+                gotoxy(48 * (indice % 2) + j * 8, 5 + i + indice / 2 * 8);              /// LÛgica de posicionamento dos valores das cartelas;
 
-                /*  La√ßo de pesquisa para verificar se o valor da cartela j√° saiu no vetor sorteio; */
+                /*  LaÁo de pesquisa para verificar se o valor da cartela j· saiu no vetor sorteio; */
                 int k = 0;
                 while (vet[k] != 100) {
                     if (Cartelas[indice][i][j] == vet[k])
@@ -320,20 +320,20 @@ void PosicionaCartelas(int Cartelas[SIZE][SIZE][SIZE], int vet[], string jogador
                 textcolor(7, 0);  /// Retorna a cor do cursor para 'WHITE' novamente;
             }
         }
-        gotoxy(8 + (indice % 2) * 48, 10 + 8 * (indice / 2));                           /// L√≥gica de posicionamento dos √≠ndices dos jogadores
+        gotoxy(8 + (indice % 2) * 48, 10 + 8 * (indice / 2));                           /// LÛgica de posicionamento dos Ì≠ndices dos jogadores
         cout << "jogador " << indice + 1 << ": " << jogadores[indice];
     }
 }
 
 void imprimeSorteio(int vet[75]) {
-    /*  Fun√ß√£o que faz a impress√£o do vetor sorteio ordenado;
-        Realiza a impress√£o apenas dos valores que j√° foram sorteados;
+    /*  FunÁ„o que faz a impress„o do vetor sorteio ordenado;
+        Realiza a impress„o apenas dos valores que j· foram sorteados;
     */
 
     int i = 0;
     while (vet[i] != 100 && i < 75) {
         textcolor(2, 0);                                                                /// Cor 'GREEN';
-        gotoxy(5 + 3 * (i % 25), 1 + (i / 25));                                         /// L√≥gica de posicionamento do vetor sorteio na tela;
+        gotoxy(5 + 3 * (i % 25), 1 + (i / 25));                                         /// LÛgica de posicionamento do vetor sorteio na tela;
         cout << vet[i];
         i++;
     }
@@ -341,9 +341,9 @@ void imprimeSorteio(int vet[75]) {
 }
 
 void sorteioNumero(int Cartelas[SIZE][SIZE][SIZE], int vetor[75], string jogadores[SIZE]) {
-    /*  Fun√ß√£o que realiza o sorteio de um novo n√∫mero entre 1 e 75, e o guarda no 'vetor';
-        A l√≥gica da fun√ß√£o realiza a verifica√ß√£o para que cada n√∫mero sorteado seja √∫nico;
-        Realiza o posicionamento das cartelas como os respectivos valores sorteados j√° pintados;
+    /*  FunÁ„o que realiza o sorteio de um novo n˙mero entre 1 e 75, e o guarda no 'vetor';
+        A lÛgica da funÁ„o realiza a verificaÁ„o para que cada n˙mero sorteado seja ˙nico;
+        Realiza o posicionamento das cartelas como os respectivos valores sorteados j· pintados;
     */
 
     int num;
@@ -351,35 +351,35 @@ void sorteioNumero(int Cartelas[SIZE][SIZE][SIZE], int vetor[75], string jogador
         num = rand() % 75 + 1;
     } while (pesquisaSequencial(vetor, num, 75));
 
-    vetor[74] = num;                                                                    /// Guarda na √∫ltima posi√ß√£o para n√£o sobrescrever valores;
-    bubblesort(vetor, 75);                                                              /// Ordena√ß√£o do vetor (Valores sorteados v√£o para o come√ßo do vetor);
+    vetor[74] = num;                                                                    /// Guarda na ˙ltima posiÁ„o para n„o sobrescrever valores;
+    bubblesort(vetor, 75);                                                              /// OrdenaÁ„o do vetor (Valores sorteados v„o para o comeÁo do vetor);
     clrscr();
-    cout << "N√∫mero Sorteado: " << num;
-    PosicionaCartelas(Cartelas, vetor, jogadores);                                      /// Posiciona novamente as cartelas p√≥s clear screen;
+    cout << "N˙mero Sorteado: " << num;
+    PosicionaCartelas(Cartelas, vetor, jogadores);                                      /// Posiciona novamente as cartelas pÛs clear screen;
     imprimeSorteio(vetor);                                                              /// Imprime o vetor sorteio;
 }
 
 int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[], bool vencedores[]) {
-    /*  Fun√ß√£o que procura vencedores de acordo com o √≠ndice das cartelas;
-        Caso encontre um vencedor, ele atualiza o vetor 'vencedores' com true para o √≠ndice relativo a cartela vencedora;
+    /*  FunÁ„o que procura vencedores de acordo com o Ì≠ndice das cartelas;
+        Caso encontre um vencedor, ele atualiza o vetor 'vencedores' com true para o Ì≠ndice relativo a cartela vencedora;
     */
 
     for (int i = 0; i < SIZE; i++)
-        vencedores[i] = false;  /// Inicializa√ß√£o do vetor vencedores;
+        vencedores[i] = false;  /// InicializaÁ„o do vetor vencedores;
     for (int ind = 0; ind < SIZE; ind++) {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                /* La√ßo de pesquisa para verificar se cada valor da cartela se encontra j√° sorteado */
+                /* LaÁo de pesquisa para verificar se cada valor da cartela se encontra j· sorteado */
                 int k = 0;
                 while (vetor[k] != 100) {
                     k++;
-                    if (!pesquisaSequencial(vetor, Cartelas[ind][i][j], 75)) {          /// Se n√£o encontrado o valor no vetor
-                        k = 0;                                                          /// a cartela n√£o est√° 100% preenchida;
+                    if (!pesquisaSequencial(vetor, Cartelas[ind][i][j], 75)) {          /// Se n„o encontrado o valor no vetor
+                        k = 0;                                                          /// a cartela n„o est· 100% preenchida;
                         i = 0;
                         j = 0;
-                        ind++;                                                          /// logo n√£o √© vencedor e pula-se para o pr√≥ximo jogador (ind++);
+                        ind++;                                                          /// logo n„o È vencedor e pula-se para o prÛximo jogador (ind++);
                         if (ind >= 5)
-                            return -1;                                                  /// Se todas as cartelas foram verificadas, sai da fun√ß√£o;
+                            return -1;                                                  /// Se todas as cartelas foram verificadas, sai da funÁ„o;
                     }
                 }
             }
@@ -390,7 +390,7 @@ int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[], bool vencedores
 }
 
 void imprimeVencedores(bool vencedores[], string jogadores[]) {
-    /*  Fun√ß√£o que realiza a impress√£o na tela de um ou mais vencedores na tela de acordo com o vetor 'vencedores'; */
+    /*  FunÁ„o que realiza a impress„o na tela de um ou mais vencedores na tela de acordo com o vetor 'vencedores'; */
 
     int cont = 0;
     for (int i = 0; i < SIZE; i++) {
@@ -406,7 +406,7 @@ void imprimeVencedores(bool vencedores[], string jogadores[]) {
 }
 
 bool continuarJogando() {
-    /*  Fun√ß√£o que verifica se o usu√°rio deseja continuar jogando ou n√£o; */
+    /*  FunÁ„o que verifica se o usu·rio deseja continuar jogando ou n„o; */
 
     clrscr();
     char p;
@@ -423,14 +423,14 @@ bool continuarJogando() {
             case 'n':
                 return false;
             default:
-                cout << "Valor inv√°lido, digite Y ou N" << endl;
+                cout << "Valor inv·lido, digite Y ou N" << endl;
                 Sleep(500);
         }
     } while (true);
 }
 
 void ShowConsoleCursor(bool showFlag) {
-    /*  Fun√ß√£o que define se o cursor do console deve ser mostrado ou n√£o (produzido por Thiago Felski Pereira)*/
+    /*  FunÁ„o que define se o cursor do console deve ser mostrado ou n„o (produzido por Thiago Felski Pereira)*/
     HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
 
     CONSOLE_CURSOR_INFO cursorInfo;
@@ -441,7 +441,7 @@ void ShowConsoleCursor(bool showFlag) {
 }
 
 void telaFinal() {
-    /*  Tela de finaliza√ß√£o do jogo;*/
+    /*  Tela de finalizaÁ„o do jogo;*/
 
     ShowConsoleCursor(false);
     clrscr();
