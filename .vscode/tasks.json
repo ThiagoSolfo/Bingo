@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "version": "2.0.0",
     "tasks": [
         {
@@ -9,21 +10,44 @@
                 "-std=c++11",
                 "-O2",
                 "-Wall",
+=======
+    "tasks": [
+                    {
+                        "type": "cppbuild",
+                        "label": "C/C++: g++.exe arquivo de build ativo",
+                        "command": "C:\\MinGW\\bin\\g++.exe",
+                        "args": [
+                            "-fdiagnostics-color=always",
+>>>>>>> 155ee25e16c285a56f3b60ed3fe14af30b2fb07d
                 "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
+                            "${file}",
+                            "-o",
+                            "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                        ],
+                        "options": {
+<<<<<<< HEAD
                 "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
+=======
+                "cwd": "${fileDirname}"
+>>>>>>> 155ee25e16c285a56f3b60ed3fe14af30b2fb07d
+                        },
+                        "problemMatcher": [
+                            "$gcc"
+                        ],
+                        "group": {
+<<<<<<< HEAD
                 "isDefault": true,
-                "kind": "build"
-            }
+                            "kind": "build"
+                        }
+                    }
+                ]
+=======
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarefa gerada pelo Depurador."
         }
-    ]
+    ],
+    "version": "2.0.0"
+>>>>>>> 155ee25e16c285a56f3b60ed3fe14af30b2fb07d
 }
