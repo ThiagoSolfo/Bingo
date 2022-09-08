@@ -8,29 +8,29 @@ Integrantes:
     - Vinicius José
 */
 
-#include <conio.h>
-#include <locale.h>
+#include <conio.h> // Habilitar a entrada de teclas do teclado
+#include <locale.h> // Habilitar acentuação
 #include <stdlib.h>
-#include <time.h>
-#include <windows.h>
-#include <iostream>
-#include "codefun.h" /// Utilização do codefun.h integral como passado no material didático;
+#include <time.h> // Habilitar a função de aleatoridade
+#include <windows.h> // Habilitar modificações no console
+#include <iostream> // Habilitar cout e cin
+#include "codefun.h" // Utilização do codefun.h integral como passado no material didático;
 
 using namespace std;
 
 #define SIZE 5
 
-void telaInicial();
+void telaInicial(); // Tela de boas-vindas e instruções
 
-void inicializaJogadores(string jogadores[SIZE]);
+void inicializaJogadores(string jogadores[SIZE]); // Pergunta o nome de 5 jogadores de acordo com SIZE e os guarda no vetor jogadores[]
 
-bool trocarNomes();
+bool trocarNomes(); // Tela que pergunta se quer alterar o nome de jogadores utilizando switch case
 
-bool pesquisaSequencial(int vet[], int valor, int tam);
+bool pesquisaSequencial(int vet[], int valor, int tam); // Verifica se o valor aleatório escolhido já não é existente na linha (vetor)
 
 void inicializaLinha(int vet[], int valor = 0, int tam = SIZE);
 
-void bubblesort(int vet[], int tam = SIZE);
+void bubblesort(int vet[], int tam = SIZE); // O algoritmo de ordenação escolhido; Verifica qual o maior elemento do vetor e o posiciona ao seu fim
 
 void preencheLinha(int vet[SIZE], int linha);
 
@@ -59,14 +59,14 @@ void telaFinal();
 /*  Início Main  -----------------------------------------------------------------------------------*/
 int main() {
     setlocale(LC_ALL, "portuguese");
-    srand(time(NULL));
+    srand(time(NULL)); // Impede que os mesmos números aleatórios sejam chamados
 
     /// Inicialização de Variáveis
 
     bool x, y, winners[SIZE], verify = true;
-    const int tam = 75;
-    int ListaCartelas[SIZE][SIZE][SIZE], vetorSorteio[tam], winner = -1;
-    string jogadores[SIZE];
+    const int tam = 75; // Este valor não pode ser alterado (constante / "const")
+    int ListaCartelas[SIZE][SIZE][SIZE], vetorSorteio[tam], winner = -1; // ListaCastelas: índice da cartela seguido de linhas e colunas || vetorSorteio: recebe 75 posições sendo todos os índices com o número 100 por causa de como o algoritmo de ordenação funciona (bubblesort)
+    string jogadores[SIZE]; // Lista de jogadores que irá ser definida
 
     telaInicial();
 
@@ -371,17 +371,13 @@ int procuraVencedor(int Cartelas[SIZE][SIZE][SIZE], int vetor[], bool vencedores
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 /* Laço de pesquisa para verificar se cada valor da cartela se encontra já sorteado */
-                int k = 0;
-                while (vetor[k] != 100) {
-                    k++;
-                    if (!pesquisaSequencial(vetor, Cartelas[ind][i][j], 75)) {          /// Se não encontrado o valor no vetor
-                        k = 0;                                                          /// a cartela não está 100% preenchida;
+                    while (!pesquisaSequencial(vetor, Cartelas[ind][i][j], 75)) {       /// Se não encontrado o valor no vetor
+                                                                                        /// a cartela não está 100% preenchida;
                         i = 0;
                         j = 0;
                         ind++;                                                          /// logo não é vencedor e pula-se para o próximo jogador (ind++);
                         if (ind >= 5)
                             return -1;                                                  /// Se todas as cartelas foram verificadas, sai da função;
-                    }
                 }
             }
         }
