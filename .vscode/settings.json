@@ -6,7 +6,7 @@
     "editor.formatOnPaste": true, // Sempre irá formatar o código ao colar
     "files.trimFinalNewlines": true, // Cortará automaticamnte novas linhas ao final do código
     "terminal.integrated.defaultProfile.windows": "Command Prompt", // Terminal integrado padrão
-    "editor.formatOnSave": true, // Sempre irá formatar o código quando salvar o arquivo
+    "editor.formatOnSave": false, // Sempre irá formatar o código quando salvar o arquivo
     "code-runner.runInTerminal": true, // Obrigatório para fazer o Code Runner Funcionar
     "files.associations": { // Codificará os arquivos em c++ & c para windows 1252 (para resolver o problema da acentuação entre editores)
         "*.cpp": "cpp",
